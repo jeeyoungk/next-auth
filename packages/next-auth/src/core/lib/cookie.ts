@@ -1,7 +1,7 @@
 import type { CookiesOptions } from "../.."
 import type { CookieOption, LoggerInstance, SessionStrategy } from "../types"
 import type { NextRequest } from "next/server"
-import type { NextApiRequest } from "next"
+import type { NextApiRequest } from "../../next-shim"
 
 // Uncomment to recalculate the estimated size
 // of an empty session cookie

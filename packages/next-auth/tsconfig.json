@@ -22,9 +22,6 @@
     "outDir": ".",
     "rootDir": "src",
     "paths": {
-      "next": [
-        "node_modules/next"
-      ],
       "react": [
         "node_modules/react"
       ]

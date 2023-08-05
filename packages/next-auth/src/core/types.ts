@@ -15,7 +15,7 @@ import type { JWT, JWTOptions } from "../jwt"
 import type { LoggerInstance } from "../utils/logger"
 import type { CookieSerializeOptions } from "cookie"
 
-import type { NextApiRequest, NextApiResponse } from "next"
+import type { NextApiRequest, NextApiResponse } from "../next-shim"
 
 import type { InternalUrl } from "../utils/parse-url"
 

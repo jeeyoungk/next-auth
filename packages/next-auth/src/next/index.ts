@@ -5,7 +5,7 @@ import type {
   GetServerSidePropsContext,
   NextApiRequest,
   NextApiResponse,
-} from "next"
+} from "../next-shim"
 import { type NextRequest } from "next/server"
 import type { AuthOptions, Session } from ".."
 import type {
