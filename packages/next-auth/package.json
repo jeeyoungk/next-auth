@@ -1,5 +1,5 @@
 {
-  "name": "next-auth",
+  "name": "@jeeyoungk/next-auth-remix",
   "version": "4.22.1",
   "description": "Authentication for Next.js",
   "homepage": "https://next-auth.js.org",
@@ -21,7 +21,6 @@
     "jwt",
     "oauth2",
     "authentication",
-    "nextjs",
     "csrf",
     "oidc",
     "nextauth"
@@ -76,7 +75,6 @@
     "uuid": "^8.3.2"
   },
   "peerDependencies": {
-    "next": "^12.2.5 || ^13",
     "nodemailer": "^6.6.5",
     "react": "^17.0.2 || ^18",
     "react-dom": "^17.0.2 || ^18"
@@ -118,7 +116,6 @@
     "jest-environment-jsdom": "^28.1.1",
     "jest-watch-typeahead": "^1.1.0",
     "msw": "^0.42.3",
-    "next": "13.3.0",
     "postcss": "^8.4.14",
     "postcss-cli": "^9.1.0",
     "postcss-nested": "^5.0.6",
