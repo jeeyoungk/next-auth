@@ -37,6 +37,7 @@ import type {
   BuiltInProviderType,
   RedirectableProviderType,
 } from "../providers"
+import { envvar } from "../next-shim"
 
 export * from "./types"
 
@@ -47,15 +48,15 @@ export * from "./types"
 // 2. When invoked server side the value is picked up from an environment
 //    variable and defaults to 'http://localhost:3000'.
 const __NEXTAUTH: AuthClientConfig = {
-  baseUrl: parseUrl(process.env.NEXTAUTH_URL ?? process.env.VERCEL_URL).origin,
-  basePath: parseUrl(process.env.NEXTAUTH_URL).path,
+  baseUrl: parseUrl(envvar("NEXTAUTH_URL") ?? envvar("VERCEL_URL")).origin,
+  basePath: parseUrl(envvar("NEXTAUTH_URL")).path,
   baseUrlServer: parseUrl(
-    process.env.NEXTAUTH_URL_INTERNAL ??
-      process.env.NEXTAUTH_URL ??
-      process.env.VERCEL_URL
+    envvar("NEXTAUTH_URL_INTERNAL") ??
+      envvar("NEXTAUTH_URL") ??
+      envvar("VERCEL_URL")
   ).origin,
   basePathServer: parseUrl(
-    process.env.NEXTAUTH_URL_INTERNAL ?? process.env.NEXTAUTH_URL
+    envvar("NEXTAUTH_URL_INTERNAL") ?? envvar("NEXTAUTH_URL")
   ).path,
   _lastSync: 0,
   _session: undefined,
@@ -120,7 +121,7 @@ export function useSession<R extends boolean>(
 
   // @ts-expect-error Satisfy TS if branch on line below
   const value: SessionContextValue<R> = React.useContext(SessionContext)
-  if (!value && process.env.NODE_ENV !== "production") {
+  if (!value && envvar("NODE_ENV") !== "production") {
     throw new Error(
       "[next-auth]: `useSession` must be wrapped in a <SessionProvider />"
     )

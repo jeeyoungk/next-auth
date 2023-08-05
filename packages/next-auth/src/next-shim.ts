@@ -101,3 +101,11 @@ export declare type NextApiResponse<Data = any> = ServerResponse & {
     }
   ) => Promise<void>
 }
+
+export function envvar(input: string): string {
+  const g = global as any;
+  if (g && g.process && g.process.env) {
+    return g.process.env[input]
+  }
+  return ""
+}

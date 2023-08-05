@@ -13,6 +13,7 @@ import { defaultCookies } from "./cookie"
 import type { RequestInternal } from ".."
 import type { WarningCode } from "../../utils/logger"
 import type { AuthOptions } from "../types"
+import { envvar } from "../../next-shim"
 
 type ConfigError =
   | MissingAPIRoute
@@ -51,13 +52,13 @@ export function assertConfig(params: {
     if (!req.origin) warnings.push("NEXTAUTH_URL")
 
     // TODO: Make this throw an error in next major. This will also get rid of `NODE_ENV`
-    if (!options.secret && process.env.NODE_ENV !== "production")
+    if (!options.secret && envvar("NODE_ENV") !== "production")
       warnings.push("NO_SECRET")
 
     if (options.debug) warnings.push("DEBUG_ENABLED")
   }
 
-  if (!options.secret && process.env.NODE_ENV === "production") {
+  if (!options.secret && envvar("NODE_ENV") === "production") {
     return new MissingSecret("Please define a `secret` in production.")
   }
 
