@@ -6,5 +6,3 @@ export type {
   ResponseInternal as OutgoingResponse,
 } from "./core"
 
-export * from "./next"
-export { default } from "./next"
