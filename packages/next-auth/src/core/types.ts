@@ -11,7 +11,7 @@ import type {
   UserinfoEndpointHandler,
 } from "../providers"
 import type { TokenSetParameters } from "openid-client"
-import type { JWT, JWTOptions } from "../jwt"
+import type { JWT, JWTOptions } from "../jwt/types"
 import type { LoggerInstance } from "../utils/logger"
 import type { CookieSerializeOptions } from "cookie"
 

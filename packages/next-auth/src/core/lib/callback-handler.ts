@@ -3,7 +3,7 @@ import { fromDate } from "./utils"
 
 import type { InternalOptions } from "../types"
 import type { AdapterSession, AdapterUser } from "../../adapters"
-import type { JWT } from "../../jwt"
+import type { JWT } from "../../jwt/types"
 import type { Account, User } from "../.."
 import type { SessionToken } from "./cookie"
 import { OAuthConfig } from "src/providers"
